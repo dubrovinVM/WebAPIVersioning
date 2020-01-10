@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace WebAPIVersioning
 {
@@ -35,6 +36,12 @@ namespace WebAPIVersioning
             //services.AddApiVersioning(o => {
             //    o.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
             //});
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,6 +51,13 @@ namespace WebAPIVersioning
                 app.UseDeveloperExceptionPage();
             }
             app.UseHttpsRedirection();
+           
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

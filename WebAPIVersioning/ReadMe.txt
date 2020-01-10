@@ -1,3 +1,12 @@
+Use dotnet-sdk-core 3.1.10
+For Swagger used Swashbuckle: https://localhost:44319/swagger/index.html
+Other documental services for RESTful API:
+- www.apiary.io
+- www.mashape.com
+- http://www.dexy.it/
+- http://turnapi.com/
+- help pages from Microsoft https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
+
 API versioning - Proof of concept
 
 To version your service, you simply need to decorate your controller with the appropriate API version information.
@@ -36,3 +45,4 @@ API Versioning Methods:
 - DEPRECATING (This advertises that 1.0 is going away soon and that folks should consider 2.0. The response headers advertise this fact!): [ApiVersion( "2.0" )] [ApiVersion( "1.0", Deprecated = true )]
 
 Ignoring API Versioning for some endpoints: [ApiVersionNeutral]
+
