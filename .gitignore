@@ -1,0 +1,4 @@
+/.vs*
+.dockerignore
+/WebApiVersioning/bin
+/WebApiVersioning/obj/Debug/
