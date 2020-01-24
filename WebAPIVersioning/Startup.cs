@@ -28,14 +28,13 @@ namespace WebAPIVersioning
         {
             services.AddControllers();
             services.AddMvc();
-            services.AddApiVersioning();
-            //services.AddApiVersioning(options =>
-            //{
-            //    options.ApiVersionReader = new MediaTypeApiVersionReader();
-            //});
-            //services.AddApiVersioning(o => {
-            //    o.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
-            //});
+
+            services.AddApiVersioning(
+                options => options.ApiVersionReader = ApiVersionReader.Combine(
+                    new QueryStringApiVersionReader("api-version"),
+                    new HeaderApiVersionReader("x-api-version"),
+                    new MediaTypeApiVersionReader("version")
+                   ));
 
             services.AddSwaggerGen(c =>
             {

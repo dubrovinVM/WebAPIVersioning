@@ -7,21 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 
 //   Versioning by Media Type
 // for this scope uncomment lines 31-34 (add MediaTypeApiVersionReader) in Startup.cs and comment other lines with AddApiVersioning
+// can be: text/html, text/xml, application/json, image/jpeg etc.
 
 //   1st variant:
 //GET /api/mediatype HTTP/1.1
 //host: localhost
-//accept: text/plain;v=1.0
+//accept: text/plain;version=1.0
 
 //   2nd variant:
 //GET /api/mediatype HTTP/1.1
 //host: localhost
-//accept: text/plain;v=2.0
+//accept: text/plain;version=2.0
 
 //  3th variant:
 //POST api/mediatype?text=Hello there! HTTP/1.1
 //host: localhost
-//content-type: text/plain;v=2.0
+//content-type: text/plain;version=2.0
 //content-length: 12
 
 
