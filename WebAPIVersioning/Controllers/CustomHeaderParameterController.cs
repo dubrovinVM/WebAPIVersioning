@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAPIVersioning.Controllers
 {
     //  Versioning using Custom Header parameter
-
-    //  for this scope uncomment lines 35-37 (add HeaderApiVersionReader) in Startup.cs and comment other lines with AddApiVersioning 
-    //  once you set the version reader to use the header, you can no longer specify query string versioning 
     // api/customheaderparameter
     // GET x-api-version:2.0
 

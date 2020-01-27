@@ -7,7 +7,7 @@ Other documental services for RESTful API:
 - http://turnapi.com/
 - help pages from Microsoft https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 
-API versioning - Proof of concept
+     - Proof of concept
 
 To version your service, you simply need to decorate your controller with the appropriate API version information.
 
@@ -34,8 +34,6 @@ API Versioning Methods:
 - Query String Versioning (default) : [ApiVersion( "2.0" )] => /api/helloworld?api-version=2.0
 - URL Path Versioning: [ApiVersion( "1.0" )] [Route( "api/v{version:apiVersion}/[controller]" )] => /api/v[1|2|3]/helloworld
 - Header Versioning:
-                       once you set the version reader to use the header, you can no longer specify `Query String Versioning`
-                       
                        public void ConfigureServices( IServiceCollection services )
                        {
                            services.AddMvc();

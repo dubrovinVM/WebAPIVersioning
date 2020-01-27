@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace QueryString.WebAPIVersioning
 {
     //  QUERYSTRING PARAMETER VERSIONING
-    //  for this scope uncomment the line 30 and comment other lines with AddApiVersioning
     //  GET /api/querystring?api-version=1.0 || /api/querystring?api-version=2.0
 
     [ApiVersion("1.0")]

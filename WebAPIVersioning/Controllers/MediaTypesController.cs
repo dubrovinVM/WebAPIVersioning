@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 //   Versioning by Media Type
-// for this scope uncomment lines 31-34 (add MediaTypeApiVersionReader) in Startup.cs and comment other lines with AddApiVersioning
 // can be: text/html, text/xml, application/json, image/jpeg etc.
 
 //   1st variant:
