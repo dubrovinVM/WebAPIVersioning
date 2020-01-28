@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebAPIVersioning.Models;
 
 //   Versioning by Media Type
 // can be: text/html, text/xml, application/json, image/jpeg etc.
@@ -32,8 +34,8 @@ namespace V1
     [Route("api/[controller]")]
     public class MediaTypeController : ControllerBase
     {
-        [HttpGet]
-        public string Get() => "Media Type VERSIONING v1.0";
+        [HttpPost]
+        public string Post(string text) => text;
     }
 }
 
@@ -48,6 +50,18 @@ namespace V2
         public string Get() => "Media Type VERSIONING v2.0";
 
         [HttpPost]
-        public string Post(string text) => text;
+        public string Post(Order oder) => $"Your order: {oder.Description}";
+    }
+}
+
+namespace V3
+{
+    [ApiVersion("3.0")]
+    [ApiController]
+    [Route("api/[controller]")]
+    public class MediaTypeController : ControllerBase
+    {
+        [HttpPost]
+        public string Post(OrderExt oderExt) => $"Dear {oderExt.CustomerName}, your order: {oderExt.Description}";
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +39,21 @@ namespace WebAPIVersioning
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc(
+                    "v1", 
+                    new OpenApiInfo
+                    {
+                        Title = ".NET Tech Talk - API versioning and documentation. ", 
+                        Version = "v1",
+                        Description = "Make love not confusion",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Dmytro Parkhomchuk",
+                            Email = string.Empty,
+                            Url = new Uri("https://telescope.epam.com/who/Dmytro_Parkhomchuk"),
+                        }
+                    }
+                    );
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
         }
