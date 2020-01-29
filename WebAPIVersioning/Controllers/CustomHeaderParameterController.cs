@@ -17,8 +17,13 @@ namespace WebAPIVersioning.Controllers
     [Route("api/customheaderparameter")]
     public class CustomHeaderParameterController : Controller
     {
+        /// <summary>
+        /// Parameter Id - {int}, ID of order in DB. "x-api-version" - version of API ("1.0","2.0"). Showing Versioning by Custom Header parameter
+        /// </summary>
+        /// <returns>A string with a message</returns>
+        ///<param name="id"></param>  
         [HttpGet]
-        public string Get() => "Custom Header parameter VERSIONING v1.0!";
+        public string Get(int id, [FromHeader(Name = "x-api-version")]string xApiVersion) => "Custom Header parameter VERSIONING v1.0!";
     }
 
     [ApiVersion("2.0")]
@@ -26,8 +31,13 @@ namespace WebAPIVersioning.Controllers
     [Route("api/customheaderparameter")]
     public class CustomHeaderParameterV2Controller : Controller
     {
+        /// <summary>
+        /// Parameter Id - {int}, ID of order in DB. "x-api-version" - version of API ("1.0","2.0"). Showing Versioning by Custom Header parameter
+        /// </summary>
+        /// <returns>A string with a message</returns>
+        ///<param name="id"></param>  
         [HttpGet]
-        public string Get() => "Custom Header parameter VERSIONING v2.0!";
+        public string Get(int id, [FromHeader(Name = "x-api-version")]string xApiVersion) => "Custom Header parameter VERSIONING v2.0!";
     }
 }
 

@@ -15,8 +15,13 @@ namespace QueryString.WebAPIVersioning
     [Route("api/querystring")]
     public class QueryStringParameterController : Controller
     {
+        /// <summary>
+        ///  Parameter Id - {int}, ID of order in DB. "api-version" - version of API ("1.0","2.0") Versioning by QUERYSTRING PARAMETER
+        /// </summary>
+        /// <returns>A string with a message</returns>
+        ///<param name="id"></param>  
         [HttpGet]
-        public string Get() => "QUERYSTRING PARAMETER VERSIONING v1.0!";
+        public string Get(int id, [FromQuery(Name = "api-version")] string apiVersion) => "QUERYSTRING PARAMETER VERSIONING v1.0!";
     }
 
     [ApiVersion("2.0")]
@@ -24,7 +29,12 @@ namespace QueryString.WebAPIVersioning
     [Route("api/querystring")]
     public class QueryStringParameterV2Controller : Controller
     {
+        /// <summary>
+        ///  Parameter Id - {int}, ID of order in DB. "api-version" - version of API ("1.0","2.0"). Versioning by QUERYSTRING PARAMETER
+        /// </summary>
+        /// <returns>A string with a message</returns>
+        ///<param name="id"></param>  
         [HttpGet]
-        public string Get() => "QUERYSTRING PARAMETER VERSIONING v2.0!";
+        public string Get(int id, [FromQuery(Name = "api-version")] string apiVersion) => "QUERYSTRING PARAMETER VERSIONING v2.0!";
     }
 }
